@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}{{ site.name }} — independent ai research{% endblock %}
+{% block body %}
+<section class="hero">
+  <div class="blocks">
+    <div class="block block-to"><span>to</span></div>
+    <div class="block block-be"><span>be</span></div>
+    <div class="block block-labs"><span>labs</span></div>
+  </div>
+</section>
+
+<section id="research" class="home-section">
+  <h2><span class="sq sq-g"></span>research</h2>
+  <p>Short, falsifiable write-ups from the lab — mostly small models, timing, and what their
+  hidden states are quietly doing. Each note states a question, a setup, and a result you could
+  argue with.</p>
+  <p><a href="/notes/">read the notes →</a></p>
+</section>
+
+<section id="about" class="home-section">
+  <h2><span class="sq sq-g"></span>about</h2>
+  <p>to be labs is an independent, self-funded research effort. We work on tiny language models
+  and the representations inside them — the questions that fit on a single GPU and resolve to a
+  number, not a press release.</p>
+  <p><a href="mailto:{{ site.email }}">{{ site.email }} →</a></p>
+</section>
+{% endblock %}

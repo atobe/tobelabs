@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}notes — {{ site.name }}{% endblock %}
+{% block body %}
+<header class="notes-head">
+  <div class="kicker">
+    <span class="sq sq-o"></span><span class="sq sq-m"></span><span class="sq sq-g"></span>
+    <span class="mono lbl">to be labs · notes</span>
+  </div>
+  <h1 class="notes-title">Notes<span class="dot">.</span></h1>
+  <p class="notes-sub">Short, falsifiable write-ups from the lab — mostly small models, timing,
+  and what their hidden states are quietly doing.</p>
+  <div class="notes-divider">
+    <span class="mono">{{ posts|length }} note{{ 's' if posts|length != 1 }}</span>
+    <span class="mono">newest first</span>
+  </div>
+</header>
+
+<main class="notes-list">
+{% for p in posts %}
+  <article class="note-row">
+    <div class="note-num note-{{ p.color }}">{{ p.index }}</div>
+    <div class="note-body">
+      {% if loop.first %}<span class="badge">newest</span>{% endif %}
+      <a class="note-link" href="/notes/{{ p.slug }}/">{{ p.title }}</a>
+      <p class="note-desc">{{ p.summary }}</p>
+      <div class="note-meta mono">
+        <span>{{ p.date }}</span><span class="d"></span>
+        <span>{{ p.readtime }}</span><span class="d"></span>
+        <span class="tags">{{ p.tags | join(' · ') }}</span>
+      </div>
+    </div>
+  </article>
+{% endfor %}
+</main>
+{% endblock %}

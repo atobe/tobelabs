@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}{{ post.title }} — {{ site.name }}{% endblock %}
+{% block body %}
+<article class="note">
+  <header>
+    <div class="kicker">
+      <span class="sq sq-o"></span><span class="sq sq-m"></span><span class="sq sq-g"></span>
+      <span class="mono lbl">Research note</span>
+      <span class="bar"></span>
+      <span class="mono">{{ post.date }}</span>
+    </div>
+    <h1 class="note-h1">{{ post.title }}</h1>
+    <div class="note-byline">
+      <span class="author">{{ post.author }}</span>
+      <span class="dot-sm"></span>
+      <span class="tagpills">
+        {% for t in post.tags %}<span class="pill">{{ t }}</span>{% endfor %}
+      </span>
+    </div>
+  </header>
+  <div class="note-content">{{ post.html | safe }}</div>
+</article>
+<div class="note-foot"><a href="/notes/">← all notes</a></div>
+{% endblock %}
